@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MiembroController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +16,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Rutas de miembro
+    Route::get('/miembro', [MiembroController::class, 'index'])->name('miembro.index');
+    Route::post('/miembro', [MiembroController::class, 'store'])->name('miembro.store');
+    Route::get('/miembro/create', [MiembroController::class, 'create'])->name('miembro.create');
+    Route::delete('/miembro/{miembros}', [MiembroController::class, 'destroy'])->name('miembro.destroy');
+    Route::put('/miembro/{miembros}', [MiembroController::class, 'update'])->name('miembro.update');
+    Route::get('/miembro/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembro.edit');
 });
 
 require __DIR__.'/auth.php';
