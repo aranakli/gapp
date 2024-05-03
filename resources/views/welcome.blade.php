@@ -55,12 +55,12 @@
                     </header>
 
                     <main class="mt-6">
-                        
-                       
+
+
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        GESTIÓN AGIL DE PROYECTOS PERSONALIZADOS
+                        <h1>GESTIÓN AGIL DE PROYECTOS PERSONALIZADOS - 2024 (C)</h1>
                     </footer>
                 </div>
             </div>

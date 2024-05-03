@@ -23,6 +23,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/miembro/{miembros}', [MiembroController::class, 'destroy'])->name('miembro.destroy');
     Route::put('/miembro/{miembros}', [MiembroController::class, 'update'])->name('miembro.update');
     Route::get('/miembro/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembro.edit');
+    // Rutas de proyectos
+    Route::get('/proyectos', [ProyectoController::class, 'index'])->name('proyectos.index');
+    Route::post('/proyectos', [ProyectoController::class, 'store'])->name('proyectos.store');
+    Route::get('/proyectos/create', [ProyectoController::class, 'create'])->name('proyectos.create');
+    Route::delete('/proyectos/{proyecto}', [ProyectoController::class, 'destroy'])->name('proyectos.destroy');
+    Route::put('/proyectos/{proyecto}', [ProyectoController::class, 'update'])->name('proyectos.update');
+    Route::get('/proyectos/{proyecto}/edit', [ProyectoController::class, 'edit'])->name('proyectos.edit');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
