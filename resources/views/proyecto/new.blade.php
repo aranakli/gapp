@@ -26,25 +26,32 @@
             <form method="POST" action="{{ route('proyectos.store') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="id" class="p-1 text-gray-900 dark:text-gray-100">Código</label>
+                    <label for="id" class="form-label">Código</label>
                     <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"
                         disabled="disabled">
                     <div id="idHelp" class="form-text">Código del proyecto</div>
                 </div>
                 <div class="mb-3">
-                    <label for="titulo" class="p-1 text-gray-900 dark:text-gray-100">Titulo</label>
+                    <label for="titulo" class="form-label">Titulo</label>
                     <input type="text" require class="form-control" id="titulo" aria-describedby="nameHelp"
                         name="titulo" placeholder="Titulo del proyecto">
                 </div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccione el estado del proyecto</option>
-                    <option value="Borrador">Borrador</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Cancelado">Cancelado</option>
-                    <option value="En espera">En espera</option>
-                    <option value="Archivado">Archivado</option>
-                  </select>
-
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" require class="form-control" id="descripcion" aria-describedby="nameHelp"
+                        name="descripcion" placeholder="Descripción del proyecto">
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" name="estado">
+                        <option selected>Seleccione el estado del proyecto</option>
+                        <option value="Borrador">Borrador</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Cancelado">Cancelado</option>
+                        <option value="En espera">En espera</option>
+                        <option value="Archivado">Archivado</option>
+                    </select>
+                </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a href="{{ route('proyectos.index') }}" class="btn btn-warning">Cancelar</a>

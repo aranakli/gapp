@@ -23,34 +23,36 @@
         </x-slot>
         <div class="container">
             <h1>Editar Proyecto</h1>
-            <form method="POST" action="{{ route('proyectos.update', ['proyecto' => $proyecto->comu_codi]) }}">
+            <form method="POST" action="{{ route('proyectos.update', ['proyecto' => $proyecto->id]) }}">
                 @method('put')
                 @csrf
                 <div class="mb-3">
-                    <label for="id" class="p-1 text-gray-900 dark:text-gray-100">Código {{ $proyecto->id }}</label>
+                    <label for="id" class="form-label">Código {{ $proyecto->id }}</label>
                     <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"
                         disabled="disabled" value="{{ $proyecto->id }}">
-                    <div id="idHelp" class="p-1 text-gray-900 dark:text-gray-100">Código del proyecto</div>
+                    <div id="idHelp" class="form-label">Código del proyecto</div>
                 </div>
                 <div class="mb-3">
-                    <label for="titulo" class="p-1 text-gray-900 dark:text-gray-100">Proyecto</label>
+                    <label for="titulo" class="form-label">Proyecto</label>
                     <input type="text" require class="form-control" id="titulo" aria-describedby="nameHelp"
                         name="titulo" placeholder="Titulo del proyecto" value="{{ $proyecto->titulo }}">
                 </div>
                 <div class="mb-3">
-                    <label for="descripcion" class="p-1 text-gray-900 dark:text-gray-100">Descripción</label>
+                    <label for="descripcion" class="form-label">Descripción</label>
                     <input type="text" require class="form-control" id="descripcion" aria-describedby="nameHelp"
                         name="descripcion" placeholder="Descripcion del proyecto" value="{{ $proyecto->descripcion }}">
                 </div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>{{ $proyecto->estado }}</option>
-                    <option value="Borrador">Borrador</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Cancelado">Cancelado</option>
-                    <option value="En espera">En espera</option>
-                    <option value="Archivado">Archivado</option>
-                  </select>
-
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" name="estado">
+                        <option selected>{{ $proyecto->estado }}</option>
+                        <option value="Borrador">Borrador</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Cancelado">Cancelado</option>
+                        <option value="En espera">En espera</option>
+                        <option value="Archivado">Archivado</option>
+                    </select>
+                </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a href="{{ route('proyectos.index') }}" class="btn btn-warning">Cancelar</a>
