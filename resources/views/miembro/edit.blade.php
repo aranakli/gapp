@@ -56,12 +56,58 @@
                     <input type="text" required class="form-control" id="email" name="email"
                         placeholder="Email miembro" value="{{ $miembro->email }}">
                 </div>
+
                 <div class="mb-3">
                     <label for="estado" class="form-label">Estado</label>
-                    <input type="text" required class="form-control" id="estado" name="estado"
+                    <input type="hidden" required class="form-control" id="estado" name="estado"
                         placeholder="Estado miembro" value="{{ $miembro->estado }}">
                 </div>
-                
+                <?php
+                // Obtener el valor de $miembro->estado
+                $estado = $miembro->estado;
+                // Verificar si cada opción está incluida
+                $hab = strpos($estado, '0') !== false ? 'checked' : '';
+                $deshab = strpos($estado, '1') !== false ? 'checked' : '';
+
+                ?>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="0" id="estado1" name="estado"
+                        onclick="guardarCheckbox()" {{ $hab }}>
+                    <label class="form-check-label" for="estado1">
+                        Habilitado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="1" id="estado2" name="estado"
+                        onclick="guardarCheckbox()" {{ $deshab }}>
+                    <label class="form-check-label" for="estado2">
+                        Deshabilitado
+                    </label>
+                </div>
+                <script>
+                    function guardarCheckbox() {
+                        var checkboxes = document.getElementsByClassName("form-check-input");
+                        var valoresSeleccionados = [];
+                        for (var i = 0; i < checkboxes.length; i++) {
+                            if (checkboxes[i].checked) {
+                                valoresSeleccionados.push(checkboxes[i].value);
+                            }
+                        }
+                        document.getElementById("estado").value = valoresSeleccionados.join(', ');
+                    }
+
+                    function validarFormulario() {
+                        var estado = document.getElementById("estado").value;
+                        if (estado.trim() === "") {
+                            alert("ERROR. Debe seleccionar una opción en la habilitación de miembro.");
+                            return false; // Evita que el formulario se envíe
+                        }
+                        return true; // Permite que el formulario se envíe si el input "estado" no está vacío
+                    }
+                </script>
+                <!-- Despliegue de cheqkbox -->
+
 
                 <div class="mt-3">
                     <button type="submit" class="btn btn-primary">Actualizar</button>
