@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\ProyectoMiembroController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/proyectos/{proyecto}', [ProyectoController::class, 'destroy'])->name('proyectos.destroy');
     Route::put('/proyectos/{proyecto}', [ProyectoController::class, 'update'])->name('proyectos.update');
     Route::get('/proyectos/{proyecto}/edit', [ProyectoController::class, 'edit'])->name('proyectos.edit');
+    // Rutas de proyecto miembro
+    Route::get('/proyecto_miembros', [ProyectoMiembroController::class, 'index'])->name('proyecto_miembros.index');
+    Route::post('/proyecto_miembros', [ProyectoMiembroController::class, 'store'])->name('proyecto_miembros.store');
+    Route::get('/proyecto_miembros/create', [ProyectoMiembroController::class, 'create'])->name('proyecto_miembros.create');
+    Route::delete('/proyecto_miembros/{proyecto_miembro}', [ProyectoMiembroController::class, 'destroy'])->name('proyecto_miembros.destroy');
+    Route::put('/proyecto_miembros/{proyecto_miembro}', [ProyectoMiembroController::class, 'update'])->name('proyecto_miembros.update');
+    Route::get('/proyecto_miembros/{proyecto_miembro}/edit', [ProyectoMiembroController::class, 'edit'])->name('proyecto_miembros.edit');
 });
 
 require __DIR__ . '/auth.php';
