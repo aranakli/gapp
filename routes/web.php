@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\ProyectoMiembroController;
+use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -39,6 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/proyecto_miembros/{proyecto_miembro}', [ProyectoMiembroController::class, 'destroy'])->name('proyecto_miembros.destroy');
     Route::put('/proyecto_miembros/{proyecto_miembro}', [ProyectoMiembroController::class, 'update'])->name('proyecto_miembros.update');
     Route::get('/proyecto_miembros/{proyecto_miembro}/edit', [ProyectoMiembroController::class, 'edit'])->name('proyecto_miembros.edit');
+    // Rutas de tareas
+    Route::get('/tareas', [TareaController::class, 'index'])->name('tareas.index');
+    Route::post('/tareas', [TareaController::class, 'store'])->name('tareas.store');
+    Route::get('/tareas/create', [TareaController::class, 'create'])->name('tareas.create');
+    Route::delete('/tareas/{tarea}', [TareaController::class, 'destroy'])->name('tareas.destroy');
+    Route::put('/tareas/{tarea}', [TareaController::class, 'update'])->name('tareas.update');
+    Route::get('/tareas/{tarea}/edit', [TareaController::class, 'edit'])->name('tareas.edit');
 });
 
 require __DIR__ . '/auth.php';

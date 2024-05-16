@@ -11,6 +11,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("GAPP - Bienvenido!") }}
+                    <img src="Logo_de_la_Universidad_ICESI.png" class="align-center mr-6" />
+
                 </div>
             </div>
         </div>
