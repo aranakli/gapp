@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin_estimada');
-            $table->date('fecha_fin_real');
+            $table->date('fecha_fin_real')->nullable();
             $table->string('estado');
             $table->timestamps();
         });

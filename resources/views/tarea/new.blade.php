@@ -67,7 +67,7 @@
                 </div>
                 <div>
                     <label for="fecFinReal" class="from-label">Fecha Finalizacion Real</label>
-                    <input type="date" required class="form-control" id="fecFinReal" aria-describedby="nameHelp"
+                    <input type="date" class="form-control" id="fecFinReal" aria-describedby="nameHelp"
                         placeholder="Fecha de finalización real de la tarea" name="fecFinReal">
                 </div>
                 <div class="mb-3">

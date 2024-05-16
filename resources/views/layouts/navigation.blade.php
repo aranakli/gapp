@@ -17,13 +17,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('miembro.index')" :active="request()->routeIs('miembro.index')">
-                        {{ __('Miembros') }}
+                    <x-nav-link :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')">
+                        {{ __('Proyectos') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')">
-                        {{ __('Proyectos') }}
+                    <x-nav-link :href="route('miembro.index')" :active="request()->routeIs('miembro.index')">
+                        {{ __('Miembros') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -34,6 +34,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('tareas.index')" :active="request()->routeIs('tareas.index')">
                         {{ __('Tareas') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('proyecto_tareas.index')" :active="request()->routeIs('proyecto_tareas.index')">
+                        {{ __('Proyecto / Tareas') }}
                     </x-nav-link>
                 </div>
             </div>
