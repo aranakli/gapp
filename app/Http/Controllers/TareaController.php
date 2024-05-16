@@ -121,7 +121,7 @@ class TareaController extends Controller
         $tareas = DB::table('tareas')
             ->join('miembros', 'tareas.id_miembro', '=', 'miembros.id')
             ->join('proyectos', 'tareas.id_proyecto', '=', 'proyectos.id')
-            ->select('tareas.*', 'miembros.nombre', 'proyectos.titulo')
+            ->select('tareas.*', 'miembros.nombre as miembro', 'proyectos.titulo')
             ->get();
         return view('tarea.index', ['tareas' => $tareas]);
     }
